@@ -1,0 +1,53 @@
+  {% extends 'base.html' %}
+  {% block content %}
+    <div class="form-group text-primary text-center" role="status">
+                    <h1>ALL THE ITEMS</h1>
+
+         
+        {% for  all in all_items %}
+        <div class=" pt-5 ">
+
+            <div class="row bg-dark text-light">
+                <div class='col-1 mt-3 mb-2'>
+                <a href="{%url 'update_info' all.id%}" class="btn btn-warning mr-5"> Update</a>
+            </div>
+            <div class="col-2 pt-3">
+
+            {{all.name}} 
+                
+
+            </div>
+            
+            <div class="col-2 pt-3">
+
+                {{all.work}} 
+            </div>
+            
+            <div class="col-2 pt-3">
+
+              {{all.experience}} 
+
+            </div>
+
+            <div class="col-1 pt-3">
+                    {{all.total_salery}} 
+            </div>
+            <div class="col-1 pt-3">
+
+                    {{all.email}} 
+            </div>
+         <div class="col-2">
+                <a href="{%url 'delete_info' all.id%}" class="btn btn-danger mt-3 mb-2 ml-4"> Delete</a>
+                
+         </div>
+        </div>
+        </div>
+
+{% endfor %}
+</div>
+
+
+
+<a href="{% url 'create_info' %}" class="center btn btn-primary mt-5">Add New Database   </a>
+
+  {% endblock content %}
